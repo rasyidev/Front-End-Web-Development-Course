@@ -29,7 +29,7 @@ const main = function () {
 
    const fallbackResult = function (message) {
       clubListElement.innerHTML = "";
-      clubListElement.innerHTML += '<h2 class="placeholder">' + message + '</h2>'
+      clubListElement.innerHTML += `<h2 class="placeholder"> + ${message} + </h2>`
    };
 
    buttonSearchElement.addEventListener("click", onButtonSearchClicked);
