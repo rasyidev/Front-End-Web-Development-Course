@@ -8,3 +8,4 @@ class Car {
 
 let mycar = new Car("Avanza", "Silver");
 console.log(mycar)
+console.log(`I bought ${mycar.manufacture} car, the color is ${mycar.color}`)
