@@ -22,8 +22,12 @@ function reserveACoffee(type, miligrams){
 const getSeed = (type, miligrams) => {
    return new Promise((resolve, reject) => {
       if(state.seedStock[type] >= miligrams){
-         state.seedStock[type] -= miligrams;
-         resolve("Got the seeds!");
+         console.log("Getting seeds . . .");
+         setTimeout(() => {
+            state.seedStock[type] -= miligrams;
+            resolve("Got the seeds!");
+            console.log(`Stock  ${type} left: ${state.seedStock[type]}`)
+         }, 3000)
       }else{
          console.log(`Stock left: ${state.seedStock[type]}`)
          reject("The seed is not enough!")
@@ -33,10 +37,12 @@ const getSeed = (type, miligrams) => {
 
 const makeCoffee = seed => {
    return new Promise((resolve, reject) => {
-      let coffee = null;
+
       console.log("Making coffee . . . .")
       if (state.isCoffeeMakerReady){
-         resolve(coffee);
+         setTimeout(() => {
+            resolve("Coffee has already made!")
+         }, 3000)
       }else{
          reject("There is something wrong with the Coffee Maker Machine!");
       }
@@ -50,3 +56,4 @@ const servingToTable = coffee => {
 }
 
 reserveACoffee("liberica", 80);
+// console.log(`Seed Stock: ${state.seedStock}`);
