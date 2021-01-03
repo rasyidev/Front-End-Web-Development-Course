@@ -1,17 +1,16 @@
 class DataSource {
-    constructor(onSuccess, onFailed){
-        this.onSuccess = onSuccess;
-        this.onFailed = onFailed;
-    }
-    searchClub(keyword) {
+    static searchClub(keyword){
         const filteredClubs = clubs.filter( club => {
-            return club.name.toUpperCase().includes(keyword.toUpperCase());
-        });
+                    return club.name.toUpperCase().includes(keyword.toUpperCase())
+                });
+        return new Promise((resolve, reject) => {
+            
+            if (filteredClubs.length) {
+                resolve(filteredClubs);
+            } else {
+                reject(`${keyword} +  is not found`);
+            }
+        })
     
-        if (filteredClubs.length) {
-            this.onSuccess(filteredClubs);
-        } else {
-            this.onFailed(`${keyword} +  is not found`);
-        }
-    };
+    }
 }
