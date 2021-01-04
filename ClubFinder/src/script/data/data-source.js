@@ -1,3 +1,5 @@
+import clubs from './clubs.js';
+
 class DataSource {
     static searchClub(keyword){
         const filteredClubs = clubs.filter( club => {
@@ -14,3 +16,5 @@ class DataSource {
     
     }
 }
+
+export default DataSource;
