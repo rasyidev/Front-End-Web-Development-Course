@@ -32,7 +32,7 @@ class ImageFigure extends HTMLElement{
    }
 
    static get observedAttributes(){
-      return ["caption"];
+      return ["caption", "src", "alt"];
    }
 }
 
