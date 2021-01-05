@@ -9,7 +9,10 @@ class ImageFigure extends HTMLElement{
       this.src = this.getAttribute("src") || null;
       this.alt = this.getAttribute("alt") || null;
       this.caption = this.getAttribute("caption") || null;
+      this.render();
+   }
 
+   render() {
       this.innerHTML = `
          <figure>
             <img src="${this.src}" alt="${this.alt}">
@@ -24,6 +27,8 @@ class ImageFigure extends HTMLElement{
 
    attributeChangedCallback(name, oldValue, newValue){
       console.log(`Attribute: ${name} changed!`);
+      this[name] = newValue;
+      this.render()
    }
 
    static get observedAttributes(){
